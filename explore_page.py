@@ -33,7 +33,7 @@ def clean_education(x):
 #Load the data and apply all the transformation
 @st.cache_data#Now we have executed this one time, then it will cache it and it is available the next time again
 def load_data():
-    df = pd.read_csv("C:\Absar\Important\ML Project\stack-overflow-developer-survey-2023\survey_results_public.csv")
+    df = pd.read_csv("survey_results_public.csv")
     df = df[["Country", "EdLevel", "YearsCodePro", "Employment", "ConvertedCompYearly"]]
     df = df[df["ConvertedCompYearly"].notnull()]
     df = df.dropna()
