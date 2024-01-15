@@ -1,8 +1,12 @@
-# Software Developer Salary Prediction
+# Stack Overflow Anuual Developer Salary Survey 2023 Prediction
 
 ## Overview
 
 This repository contains a machine learning model for predicting software developer salaries based on various factors such as country, education level, and years of experience. The predictive model is implemented in Python, utilizing libraries such as scikit-learn for machine learning tasks.
+
+### Data Source
+
+The model is trained on the Stack Overflow Annual Developer Survey 2023, which gathered responses from over 90,000 developers in May 2023. The survey focused on how developers learn and level up, the tools they're using, and the ones they desire.
 
 ## Table of Contents
 
