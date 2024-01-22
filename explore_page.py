@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-#Data Cleaning
+
 def shorten_categories(categories, cutoff):
     categorical_map = {}
     for i in range(len(categories)):
@@ -30,8 +30,8 @@ def clean_education(x):
         return 'Post grad'
     return 'Less than a Bachelors'
 
-#Load the data and apply all the transformation
-@st.cache_data#Now we have executed this one time, then it will cache it and it is available the next time again
+
+@st.cache_data
 def load_data():
     df = pd.read_csv("survey_results_public.csv")
     df = df[["Country", "EdLevel", "YearsCodePro", "Employment", "ConvertedCompYearly"]]
@@ -62,29 +62,30 @@ def show_explore_page():
     """
     )
     
-    #PIE CHART
+    
     data = df["Country"].value_counts()
     fig1, ax1 = plt.subplots()
     ax1.pie(data, labels=data.index, autopct="%1.1f%%", shadow=True, startangle=90)
-    ax1.axis("equal")  # Equal aspect ratio ensures that pie is drawn as a circle.
+    ax1.axis("equal")  
     st.write("""#### Number of Data from different countries""")
     st.pyplot(fig1)
     
-    #BAR CHART
+
+    
     st.write(
         """
     #### Mean Salary Based On Country
     """
     )
-    data = df.groupby(["Country"])["Salary"].mean().sort_values(ascending=True)#average salary for each country
+    data = df.groupby(["Country"])["Salary"].mean().sort_values(ascending=True)
     st.bar_chart(data)
 
-    #LINE CHART
+    
     st.write(
         """
     #### Mean Salary Based On Experience
     """
     )
-    data = df.groupby(["YearsCodePro"])["Salary"].mean().sort_values(ascending=True)#average salary as per the experience
+    data = df.groupby(["YearsCodePro"])["Salary"].mean().sort_values(ascending=True)
     st.line_chart(data)
 

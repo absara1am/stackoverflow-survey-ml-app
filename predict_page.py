@@ -19,7 +19,6 @@ def show_predict_page():
 
     st.write("""### We need some information to predict the salary""")
     
-    #tuple of countries
     countries = (
         "United States of America",
         "India",
@@ -52,12 +51,12 @@ def show_predict_page():
 
     experience = st.slider("Years of Experience", 0, 50, 3)
 
-    ok = st.button("Calculate Salary")#if we click on the button than this is true and vice versa
+    ok = st.button("Calculate Salary")
     if ok:
         X = np.array([[country, education, experience ]])
         X[:, 0] = le_country.transform(X[:,0])
         X[:, 1] = le_education.transform(X[:,1])
         X = X.astype(float)
 
-        salary = regressor.predict(X)#salary is a numpy array with only one value in it
+        salary = regressor.predict(X)
         st.subheader(f"The estimated salary is ${salary[0]:.2f}")
