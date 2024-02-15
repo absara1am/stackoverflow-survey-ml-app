@@ -1,4 +1,4 @@
-# Stack Overflow Anuual Developer Salary Survey 2023 Prediction
+# Stack Overflow Annual Developer Salary Survey 2023 Prediction
 
 ## Overview
 
